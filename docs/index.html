@@ -27,7 +27,8 @@
       <div class="body">
         <h2>YouTubeチャンネル開設</h2>
         <p>Claude CodeとGoogle AI Studioで動画の半自動作成環境を構築。管理画面のボタンを押すだけで動画を生成し、確認してボタンを押すだけで投稿まで行います。</p>
-        <ul class="tags"><li>Claude Code</li><li>Google AI Studio</li></ul>
+        <p>処理はNode.jsのスクリプトに工程ごとに分けました。エピソードの設定からプロンプト、画像、動画を順に生成し、ffmpegで結合と字幕の焼き込みを行ったうえで、YouTube Data APIで投稿します。生成記録からモデル別の概算費用も集計できます。</p>
+        <ul class="tags"><li>Claude Code</li><li>Google AI Studio</li><li>Node.js</li><li>ffmpeg</li><li>YouTube Data API</li></ul>
         <ul class="links">
           <li><a href="https://www.youtube.com/@train-travel-cat">AI旅猫電車</a></li>
           <li><a href="https://www.youtube.com/@fateful-mushrooms">AI運命のキノコ</a></li>
@@ -46,7 +47,8 @@
           <p>ブロックチェーン（改ざんが難しい共有の台帳）で、コピーが簡単なデジタル作品にも持ち主を記録できる仕組みです。2021年頃にアートの売買で注目を集めました。多くは画像を台帳の外に置きますが、フルオンチェインは画像まで台帳に収めるため、台帳が続く限り作品も残ります。</p>
         </aside>
         <p>制限の多いSolidityの開発環境と48KBの容量制限の中、極限まで軽い数学関数を自作して、3D空間を意識した演出を実現しました。</p>
-        <ul class="tags"><li>Solidity</li><li>フルオンチェイン</li><li>数学関数の自作</li></ul>
+        <p>Solidityには小数がないため、int256を64ビットずらした固定小数点数を用意し、その上にテイラー展開のsinと4×4行列を実装しました。キャラクターの関節を行列で組み立てて透視投影し、球を奥行き順に並べてSVGの円として出力します。SVGに埋め込んだJavaScriptで、表示後はブラウザ上で動きます。</p>
+        <ul class="tags"><li>Solidity</li><li>フルオンチェイン</li><li>数学関数の自作</li><li>SVG</li></ul>
         <ul class="links">
           <li><a href="https://www.ballcell-nft.com/#/proj01">作品ページ</a></li>
           <li><a href="https://opensea.io/collection/ball-cell-liquid-boya">OpenSea</a></li>
@@ -60,8 +62,9 @@
       <div class="body">
         <h2>グルリンダッシュ</h2>
         <p>スマホを傾けて、重力で主人公を操作してゴールを目指すゲーム。</p>
-        <p>リプレイの再生時に挙動を揃えるには、数学関数の結果を環境間で一致させる必要があります。そこで数学関数を自作し、Web・Android・iOSでの挙動を一致させました。</p>
-        <ul class="tags"><li>Emscripten</li><li>C</li><li>WebGL</li><li>Web / Android / iOS</li></ul>
+        <p>クリア時のリプレイはGoで書いたサーバーに保存され、共有URLからブラウザで再生できます。記録するのは毎フレームの重力角で、16ビット整数に量子化した値を通常のプレイでも使うことで、プレイ時と再生時の計算を揃えました。</p>
+        <p>リプレイの再生時に挙動を揃えるには、数学関数の結果を環境間で一致させる必要があります。そこで平方根はニュートン法、三角関数はテイラー展開、逆三角関数は連分数で自作し、Web・Android・iOSでの挙動を一致させました。</p>
+        <ul class="tags"><li>Emscripten</li><li>C</li><li>WebGL</li><li>Go</li><li>Web / Android / iOS</li></ul>
         <ul class="links">
           <li><a href="https://www.totetero.com/project/gururin2">作品ページ</a></li>
           <li><a href="https://github.com/totetero/gururin2">GitHub</a></li>
@@ -82,10 +85,14 @@
         <h2>ホッピンパペット</h2>
         <p>パペットを指で弾いて、大型モンスターをバッタバッタと退治していくゲーム。</p>
         <p>Emscriptenを使い、ほぼワンソースでWebだけでなくAndroidとiOSにも対応しました。</p>
-        <ul class="tags"><li>Emscripten</li><li>C</li><li>WebGL</li><li>Web / Android / iOS</li></ul>
+        <p>土台はCで書いた自作ゲームエンジン「フハハエンジン」で、グルリンダッシュでも使っています。テクスチャや音声などの環境差はプラットフォームごとのプラグイン層に閉じ込め、公開リポジトリのエンジン部169ファイルのうち127ファイルが共通コアです。</p>
+        <p>2018年にはWeb版をWebAssemblyでビルドし直して比較し、-Ozでファイルサイズを391,771バイトから322,695バイトへ約2割削減しました。</p>
+        <ul class="tags"><li>Emscripten</li><li>C</li><li>WebGL</li><li>WebAssembly</li><li>Web / Android / iOS</li></ul>
         <ul class="links">
           <li><a href="https://www.totetero.com/project/hoppingpuppet">作品ページ</a></li>
           <li><a href="https://github.com/totetero/hopping_puppet">GitHub</a></li>
+          <li><a href="https://github.com/totetero/fuhaha_engine">フハハエンジン</a></li>
+          <li><a href="https://qiita.com/totetero/items/971621879a18fc727d9c">WebAssemblyの検証記事</a></li>
         </ul>
       </div>
       <ul class="shots">
@@ -105,7 +112,9 @@
       <div class="body">
         <h2>曲率さくら</h2>
         <p>Web Creator's Contest『Q the 2nd』で金賞を受賞し、サイバーエージェントへの採用のきっかけになった作品です。</p>
+        <p>花びらを平面ではなく球面の一部として扱い、Canvas 2Dのピクセル操作で描画しました。画面の各点を球面上の座標に戻してクォータニオンで回転させ、テクスチャを貼ることで、曲面の花びらが舞う様子を表現しています。</p>
         <p>他にもjsdo.itで数多くの作品を投稿しました。現在はjsdo.itのサービス停止により見ることができません。</p>
+        <ul class="tags"><li>JavaScript</li><li>Canvas</li></ul>
       </div>
     </article>
 
@@ -115,6 +124,7 @@
       <div class="body">
         <h2>ハコニワブロックス タクト</h2>
         <p>箱をドラッグ&amp;ドロップで積み上げて遊ぶ、ブラウザの中の箱庭。</p>
+        <p>WebGLの描画エンジンをシェーダーから自作しました。マウス座標を逆行列で3D空間に戻し、各軸の平面との交点を求めることで、操作するブロックを選んでいます。</p>
         <ul class="tags"><li>JavaScript</li><li>WebGL</li></ul>
         <ul class="links">
           <li><a href="https://www.totetero.com/project/hknwblks">作品ページ</a></li>
