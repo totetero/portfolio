@@ -200,6 +200,21 @@ a.visual:hover,
 
 .body p + p { margin-top: 10px; }
 
+/* 専門用語の補足 */
+.note {
+  margin: 14px 0;
+  padding: 10px 16px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.note-title { font-weight: 700; }
+
+.body .note p + p { margin-top: 2px; }
+
 .tags {
   display: flex;
   flex-wrap: wrap;
