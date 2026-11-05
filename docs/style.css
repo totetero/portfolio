@@ -1,0 +1,271 @@
+:root {
+  --ink: #141414;
+  --paper: #fffaf0;
+  --muted: #55524b;
+  --line: 4px;
+  --blob: 22px 30px 20px 34px / 30px 20px 34px 22px;
+  --display: "Dela Gothic One", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --text: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+img { display: block; width: 100%; height: auto; }
+
+h1, h2, p, ul { margin: 0; }
+
+ul { padding: 0; list-style: none; }
+
+a { color: inherit; }
+
+a:focus-visible {
+  outline: 3px solid #2f7bff;
+  outline-offset: 3px;
+}
+
+/* ヘッダー */
+.hero {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 72px 24px 56px;
+}
+
+.hero-name {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.hero-name span {
+  margin-left: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero h1 {
+  margin-top: 8px;
+  font-family: var(--display);
+  font-size: clamp(40px, 9vw, 84px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.hero-lead {
+  margin-top: 16px;
+  font-size: 17px;
+}
+
+/* 年表 */
+.timeline {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 年の列を貫く線 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 0;
+  left: 67px;
+  width: var(--line);
+  background: var(--ink);
+}
+
+.work {
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px minmax(0, 5fr) minmax(0, 6fr);
+  gap: 32px;
+  align-items: start;
+  padding-bottom: 72px;
+}
+
+.year {
+  justify-self: center;
+  padding: 2px 10px 4px;
+  border: var(--line) solid var(--ink);
+  border-radius: 999px;
+  background: var(--accent);
+  font-family: var(--display);
+  font-size: 18px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.visual {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: var(--line) solid var(--ink);
+  border-radius: var(--blob);
+  background: var(--accent);
+  transform: rotate(-1.2deg);
+  transition: transform 0.2s ease;
+}
+
+.work:nth-child(even) .visual { transform: rotate(1.2deg); }
+
+a.visual:hover,
+.work:nth-child(even) a.visual:hover,
+.visual-pair:hover,
+.work:nth-child(even) .visual-pair:hover {
+  transform: rotate(0deg) scale(1.015);
+}
+
+.visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* メイン画像の中央に重ねる作品ロゴ */
+.visual .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--logo-width);
+  height: auto;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+}
+
+.visual-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-content: center;
+  padding: 14px;
+}
+
+.visual-pair a {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: var(--line) solid var(--ink);
+  border-radius: 50%;
+}
+
+.visual-award {
+  background: #000;
+}
+
+.visual-award p {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 2px 14px 4px;
+  border: var(--line) solid var(--ink);
+  border-radius: 999px;
+  background: var(--accent);
+  font-family: var(--display);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+/* スマホゲームのスクリーンショット一覧 */
+.shots {
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.shots img {
+  border: var(--line) solid var(--ink);
+  border-radius: 16px;
+}
+
+.body h2 {
+  font-family: var(--display);
+  font-size: clamp(23px, 3vw, 29px);
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.body p + p { margin-top: 10px; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.tags li {
+  padding: 0 10px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.links a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.links a:hover { text-decoration-thickness: 4px; }
+
+/* フッター */
+.footer {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 8px 24px 64px;
+}
+
+.footer .links { margin-top: 0; }
+
+/* スマホ: 年 → 画像 → 説明 の縦積み */
+@media (max-width: 760px) {
+  .hero { padding: 48px 16px 40px; }
+
+  .timeline { padding: 0 16px; }
+
+  .timeline::before { display: none; }
+
+  .work {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding-bottom: 56px;
+  }
+
+  .year { justify-self: start; }
+
+  .shots {
+    grid-column: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .footer { padding: 0 16px 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual { transition: none; }
+}
