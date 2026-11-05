@@ -239,6 +239,18 @@ a.visual:hover,
   padding: 8px 24px 64px;
 }
 
+.contact {
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.contact a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
 .footer .links { margin-top: 0; }
 
 /* スマホ: 年 → 画像 → 説明 の縦積み */
